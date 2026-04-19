@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    --bg-dark: #0b0510;
+    --text-light: #f5f5f7;
+    --gradient-peach-pink: linear-gradient(to right, #ffb88c, #ff758c);
+    --gradient-purple-pink: linear-gradient(to right, #a18cd1, #ff7eb3);
+    --accent-yellow: #f6c90e;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark);
+    /* The subtle glowing background from your screenshot */
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(68, 23, 62, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(85, 43, 33, 0.3) 0%, transparent 50%);
+    background-attachment: fixed;
+    color: var(--text-light);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2 { font-family: 'Playfair Display', serif; text-align: center; line-height: 1.1; }
+
+.text-peach-pink {
+    background: var(--gradient-peach-pink);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-purple-pink {
+    background: var(--gradient-purple-pink);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gugu {
+    background: var(--gradient-purple-pink);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family:'Playfair Display';
+    font-size:2.55rem;
+}
+
+.overline {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: #ff8a8a;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* --- PARTICLES --- */
+#particle-container {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0; overflow: hidden;
+}
+.particle { position: absolute; opacity: 0; animation: floatUp 10s linear infinite; }
+@keyframes floatUp {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+
+
+/* --- CONTENT --- */
+.content-wrapper { position: relative; z-index: 10; flex: 1; display: flex; flex-direction: column; align-items: center; padding: 60px 5%; }
+
+/* --- BUTTONS --- */
+.button-group { display: flex; gap: 20px; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
+.btn {
+    padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 500; font-size: 0.95rem; color: white;
+    transition: transform 0.3s, box-shadow 0.3s; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 8px; cursor: pointer;
+}
+.btn-primary { background: var(--gradient-peach-pink); color: white; border: none; font-weight: 600; }
+.btn-primary-purple { background: var(--gradient-purple-pink); color: white; border: none; font-weight: 600; }
+.btn-secondary { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+
+/* --- WISHES QUOTE & CARDS --- */
+.quote-box {
+    background: linear-gradient(135deg, #2a1139, #1a0b2e);
+    padding: 40px; border-radius: 15px; max-width: 800px; text-align: center; margin: 40px 0;
+    border: 1px solid rgba(161, 140, 209, 0.15); font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.3rem; line-height: 1.6;
+}
+
+.wishes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width: 100%; max-width: 1000px; }
+.wish-card { padding: 30px; border-radius: 15px; color: #fff; transition: 0.4s; position: relative; overflow: hidden; cursor: default; }
+.wish-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 15px 30px rgba(0,0,0,0.5); z-index: 2; }
+.wish-card h3 { font-family: 'Playfair Display', serif; margin-bottom: 12px; font-size: 1.25rem; font-style: italic;}
+.wish-card p { font-size: 0.85rem; opacity: 0.9; line-height: 1.6; }
+.card-number { position: absolute; top: 15px; right: 20px; font-size: 3rem; font-weight: bold; opacity: 0.15; font-family: 'Playfair Display', serif; }
+
+/* Exact Solid Colors for Cards from your image */
+.card-1 { background: #ff5e7e; } /* Pink */
+.card-2 { background: #ffb703; } /* Yellow */
+.card-3 { background: #8338ec; } /* Purple */
+.card-4 { background: #00b4d8; } /* Cyan */
+.card-5 { background: #3a86ff; } /* Blue */
+.card-6 { background: #fb0707a6; } /* Orange */
+
+/* --- GALLERY --- */
+/* .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; width: 100%; max-width: 1200px; margin-top: 40px; } */
+
+.gallery-grid{ display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;margin-top: 40px; width: 90%;}
+/* .gallery-grid{ display: flex; flex-wrap: wrap; justify-content: space-around;  margin-top: 20px;} */
+
+@media(max-width : 600px) { 
+    .gallery-grid{
+        grid-template-columns: repeat(1 ,1fr);
+    }
+}
+.media-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 15px; overflow: hidden; transition: transform 0.3s; }
+.media-card:hover { transform: translateY(-10px); border-color: rgba(255,138,138,0.5); }
+.media-placeholder { width: 100%; height: 250px; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; color: #666; text-align: center; font-size: 0.9rem;}
+.media-caption { padding: 15px; text-align: center; font-size: 0.85rem; color: #ccc; }
+
+/* --- FOOTER --- */
+footer { text-align: center; padding: 60px 20px 30px; background-color: #050208; border-top: 1px solid rgba(255,255,255,0.05); position: relative; z-index: 10; }
+
+
+
+
+
+/* This target devices with a screen width of 600px or less (most phones) */
+@media (max-width: 600px) {
+    
+    .media-card {
+        margin-bottom: 20px; /* Adds space between cards when they stack */
+    }
+
+    .media-card img,
+    .media-card video {
+        /* We use !important to override the 600px height you set in the HTML */
+        height: 400px !important; 
+        width: 100% !important;
+        object-fit: cover;
+    }
+
+    .media-caption {
+        font-size: 0.85rem; /* Makes text slightly smaller for phone screens */
+        padding: 10px;
+    }
+}
+
